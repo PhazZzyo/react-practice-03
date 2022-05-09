@@ -16,7 +16,7 @@ export class Form extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
+    this.props.onSubmit(this.state.name);
     this.reset();
   };
 
@@ -31,6 +31,7 @@ export class Form extends Component {
           Name
           <input
             type="text"
+            name="name"
             value={this.state.name}
             onChange={this.handleInputChange}
             id={this.formInputId}
