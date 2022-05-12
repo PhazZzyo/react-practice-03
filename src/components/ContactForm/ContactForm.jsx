@@ -13,6 +13,10 @@ export class ContactForm extends Component {
     ...INITIAL_STATE,
   };
 
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
   nameInputId = shortid.generate();
   numberInputId = shortid.generate();
 
@@ -69,9 +73,5 @@ export class ContactForm extends Component {
     );
   }
 }
-
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
 
 export default ContactForm;
