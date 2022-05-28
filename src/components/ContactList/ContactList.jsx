@@ -1,21 +1,22 @@
-import React from 'react';
 import ContactListElement from './ContactListElement/ContactListElement';
 import PropTypes from 'prop-types';
 import style from './ContactList.module.css';
 
-const ContactList = ({ contacts, onDelete }) => (
-  <ul className={style.ContactList__list}>
-    {contacts.map(({ id, name, number }) => (
-      <ContactListElement
-        key={id}
-        id={id}
-        name={name}
-        number={number}
-        onDelete={onDelete}
-      />
-    ))}
-  </ul>
-);
+const ContactList = ({ contacts, onDelete }) => {
+  return (
+    <ul className={style.ContactList__list}>
+      {contacts.map(({ id, name, number }) => (
+        <ContactListElement
+          key={id}
+          id={id}
+          name={name}
+          number={number}
+          onDelete={onDelete}
+        />
+      ))}
+    </ul>
+  );
+};
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
