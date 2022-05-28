@@ -8,14 +8,14 @@ const INITIAL_STATE = {
   number: '',
 };
 
-const ContactForm = onSubmit => {
+const ContactForm = ({ handleSubmit }) => {
   const [name, setName] = useState(INITIAL_STATE.name);
   const [number, setNumber] = useState(INITIAL_STATE.number);
 
   const nameInputId = shortid.generate();
   const numberInputId = shortid.generate();
 
-  const handleSubmit = event => {
+  const onSubmit = event => {
     event.preventDefault();
     onSubmit && handleSubmit({ name: name, number: number });
     reset();
@@ -27,7 +27,7 @@ const ContactForm = onSubmit => {
   };
 
   return (
-    <form className={style.FormInput} onSubmit={handleSubmit}>
+    <form className={style.FormInput} onSubmit={onSubmit}>
       <label htmlFor={nameInputId}>Name</label>
       <input
         type="text"
@@ -60,7 +60,7 @@ const ContactForm = onSubmit => {
 };
 
 ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
